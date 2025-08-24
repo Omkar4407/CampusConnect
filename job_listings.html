@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Job Listings | CampusConnect</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    .job-listing-card { margin-bottom: 24px; }
+    .job-listing-header { display: flex; align-items: center; gap: 12px; }
+    .job-listing-header img { width: 48px; height: 48px; border-radius: 8px; object-fit: cover; border: 2px solid var(--pastel-blue); }
+    .job-listing-actions { margin-top: 10px; }
+    .job-listing-actions .badge { margin-right: 8px; }
+    .job-status-applied { background: var(--pastel-blue); color: #003049; }
+    .job-status-open { background: var(--pastel-mint); color: #1b4332; }
+    .job-status-closed { background: var(--pastel-pink); color: #a8325e; }
+    .job-listing-filters { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 18px; }
+    .job-listing-filters input, .job-listing-filters select { padding: 8px 12px; border-radius: 6px; border: 1px solid var(--pastel-blue); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="position:relative;">
+      <div class="logo">
+        <span class="logo-icon" aria-label="CampusConnect Logo">🎓</span>
+        CampusConnect
+      </div>
+      <button class="menu-toggle" id="menuToggleBtn" aria-label="Open navigation" onclick="openNav()">
+        <i class="fa fa-ellipsis-v"></i>
+      </button>
+      <div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+      <aside class="nav-sidebar" id="navSidebar" style="display:none;">
+        <button style="background:none;border:none;font-size:1.5em;position:absolute;top:16px;right:16px;cursor:pointer;" aria-label="Close navigation" onclick="closeNav()"><i class="fa fa-times"></i></button>
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="job_listings.html"><i class="fa fa-briefcase"></i> Job Listings</a>
+        <a href="student_reg.html"><i class="fa fa-user-graduate"></i> Student Registration</a>
+        <a href="company_reg.html"><i class="fa fa-building"></i> Company Registration</a>
+        <a href="interview_schedule.html"><i class="fa fa-calendar"></i> Interviews</a>
+        <a href="resources.html"><i class="fa fa-book"></i> Resources</a>
+        <a href="statistics.html"><i class="fa fa-chart-bar"></i> Stats</a>
+        <a href="notifications.html"><i class="fa fa-bell"></i> Notifications</a>
+        <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+      </aside>
+    </div>
+  </header>
+  <script>
+    function openNav() {
+      document.getElementById('navSidebar').style.display = 'flex';
+      document.getElementById('navOverlay').classList.add('open');
+      document.getElementById('menuToggleBtn').style.display = 'none';
+    }
+    function closeNav() {
+      document.getElementById('navSidebar').style.display = 'none';
+      document.getElementById('navOverlay').classList.remove('open');
+      document.getElementById('menuToggleBtn').style.display = 'block';
+    }
+
+    // Job Listings Interactivity
+    const jobs = [
+      {
+        id: 'google',
+        company: 'Google',
+        logo: 'https://logo.clearbit.com/google.com',
+        title: 'Software Engineer Intern',
+        eligibility: 'B.Tech, CGPA 7.0+',
+        salary: '12 LPA',
+        status: 'Open',
+        applied: false,
+        details: 'Work on cutting-edge products. Location: Bangalore. Apply by 15th July. Stipend: 50k/month.'
+      },
+      {
+        id: 'infosys',
+        company: 'Infosys',
+        logo: 'https://logo.clearbit.com/infosys.com',
+        title: 'Data Analyst',
+        eligibility: 'B.Sc, BCA, CGPA 6.5+',
+        salary: '7 LPA',
+        status: 'Closed',
+        applied: false,
+        details: 'Analyze business data. Location: Pune. Closed on 10th July.'
+      },
+      {
+        id: 'wipro',
+        company: 'Wipro',
+        logo: 'https://logo.clearbit.com/wipro.com',
+        title: 'Business Analyst',
+        eligibility: 'Any Graduate, CGPA 6.0+',
+        salary: '8 LPA',
+        status: 'Open',
+        applied: false,
+        details: 'Client-facing role. Location: Mumbai. Apply by 18th July.'
+      },
+      {
+        id: 'tcs',
+        company: 'TCS',
+        logo: 'https://logo.clearbit.com/tcs.com',
+        title: 'System Engineer',
+        eligibility: 'B.Tech, CGPA 6.5+',
+        salary: '6 LPA',
+        status: 'Open',
+        applied: false,
+        details: 'Work on large-scale systems. Location: PAN India. Apply by 20th July.'
+      },
+      {
+        id: 'accenture',
+        company: 'Accenture',
+        logo: 'https://logo.clearbit.com/accenture.com',
+        title: 'Consultant',
+        eligibility: 'Any Graduate, CGPA 7.0+',
+        salary: '10 LPA',
+        status: 'Open',
+        applied: false,
+        details: 'Client-facing role, dynamic projects. Apply by 25th July.'
+      }
+    ];
+
+    function renderJobs() {
+      const container = document.getElementById('jobCards');
+      const search = document.getElementById('jobSearch').value.toLowerCase();
+      const company = document.getElementById('jobCompany').value;
+      const status = document.getElementById('jobStatus').value;
+      container.innerHTML = '';
+      jobs.forEach((job, idx) => {
+        if ((company === 'All Companies' || job.company === company) &&
+            (status === 'All Status' || (status === 'Applied' && job.applied) || job.status === status) &&
+            (job.title.toLowerCase().includes(search) || job.company.toLowerCase().includes(search))) {
+          container.innerHTML += `
+            <div class="job-listing-card card" id="jobCard${idx}">
+              <div class="job-listing-header">
+                <img src="${job.logo}" alt="${job.company} Logo" />
+                <div>
+                  <h4>${job.title} <span class="badge job-status-${job.status.toLowerCase()}">${job.status}</span></h4>
+                  <div><i class="fa fa-building"></i> ${job.company}</div>
+                  <div><i class="fa fa-graduation-cap"></i> Eligibility: ${job.eligibility}</div>
+                  <div><i class="fa fa-money-bill"></i> ${job.salary}</div>
+                </div>
+              </div>
+              <div class="job-listing-actions">
+                ${job.status === 'Open' && !job.applied ? `<a href="#" class="badge" onclick="applyJob(${idx});return false;"><i class='fa fa-paper-plane'></i> Apply</a>` : ''}
+                ${job.applied ? `<span class="badge job-status-applied"><i class='fa fa-check'></i> Applied</span>` : ''}
+                <a href="#" class="badge" onclick="showDetails(${idx});return false;"><i class='fa fa-eye'></i> View Details</a>
+              </div>
+            </div>
+          `;
+        }
+      });
+    }
+    function applyJob(idx) {
+      jobs[idx].applied = true;
+      renderJobs();
+    }
+    function showDetails(idx) {
+      const job = jobs[idx];
+      let modal = document.getElementById('jobDetailModal');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'jobDetailModal';
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100vw';
+        modal.style.height = '100vh';
+        modal.style.background = 'rgba(0,0,0,0.18)';
+        modal.style.display = 'flex';
+        modal.style.alignItems = 'center';
+        modal.style.justifyContent = 'center';
+        modal.onclick = function(e) { if(e.target === modal) modal.remove(); };
+        document.body.appendChild(modal);
+      }
+      modal.innerHTML = `
+        <div style="background: #fff; border-radius: 16px; box-shadow: 0 8px 32px 0 rgba(31,38,135,0.13); padding: 32px 32px 24px 32px; min-width: 320px; max-width: 90vw; position:relative;">
+          <button onclick="document.getElementById('jobDetailModal').remove();" style="position:absolute;top:12px;right:12px;background:none;border:none;font-size:1.3em;cursor:pointer;"><i class='fa fa-times'></i></button>
+          <div style="display:flex;align-items:center;gap:18px;">
+            <img src="${job.logo}" alt="${job.company} Logo" style="width:60px;height:60px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            <div>
+              <h3 style="margin-bottom:4px;">${job.title}</h3>
+              <div><b>Company:</b> ${job.company}</div>
+              <div><b>Eligibility:</b> ${job.eligibility}</div>
+              <div><b>Salary:</b> ${job.salary}</div>
+              <div><b>Status:</b> <span class="badge job-status-${job.status.toLowerCase()}">${job.status}</span></div>
+            </div>
+          </div>
+          <div style="margin-top:18px;">${job.details}</div>
+        </div>
+      `;
+      modal.style.display = 'flex';
+    }
+    document.getElementById('jobSearch').oninput = renderJobs;
+    document.getElementById('jobCompany').onchange = renderJobs;
+    document.getElementById('jobStatus').onchange = renderJobs;
+    renderJobs();
+  </script>
+  <main class="container">
+    <section class="hero">
+      <h2>Job Listings</h2>
+      <p>Browse and apply to the latest job opportunities from top companies.</p>
+    </section>
+    <section class="card">
+      <form class="job-listing-filters" onsubmit="renderJobs();return false;">
+        <input type="text" id="jobSearch" placeholder="Search by role or company..." />
+        <select id="jobCompany">
+          <option>All Companies</option>
+          <option>Google</option>
+          <option>Infosys</option>
+          <option>Wipro</option>
+          <option>TCS</option>
+          <option>Accenture</option>
+        </select>
+        <select id="jobStatus">
+          <option>All Status</option>
+          <option>Open</option>
+          <option>Closed</option>
+          <option>Applied</option>
+        </select>
+        <button type="submit" class="badge"><i class="fa fa-search"></i> Filter</button>
+      </form>
+      <div id="jobCards"></div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+    <div class="footer-icons">
+      <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+    </div>
+  </footer>
+  <div class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top" aria-label="Back to top"><i class="fa fa-arrow-up"></i></div>
+</body>
+</html> 

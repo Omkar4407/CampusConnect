@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resources | CampusConnect</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <style>
+    .resource-list { list-style: none; padding: 0; }
+    .resource-list li { margin-bottom: 18px; }
+    .faq { margin-top: 32px; }
+    .faq h4 { margin-bottom: 6px; }
+    .video-list { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 18px; }
+    .video-list iframe { border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container" style="position:relative;">
+      <div class="logo">
+        <span class="logo-icon" aria-label="CampusConnect Logo">🎓</span>
+        CampusConnect
+      </div>
+      <button class="menu-toggle" id="menuToggleBtn" aria-label="Open navigation" onclick="openNav()">
+        <i class="fa fa-ellipsis-v"></i>
+      </button>
+      <div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+      <aside class="nav-sidebar" id="navSidebar" style="display:none;">
+        <button style="background:none;border:none;font-size:1.5em;position:absolute;top:16px;right:16px;cursor:pointer;" aria-label="Close navigation" onclick="closeNav()"><i class="fa fa-times"></i></button>
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="job_listings.html"><i class="fa fa-briefcase"></i> Job Listings</a>
+        <a href="student_reg.html"><i class="fa fa-user-graduate"></i> Student Registration</a>
+        <a href="company_reg.html"><i class="fa fa-building"></i> Company Registration</a>
+        <a href="interview_schedule.html"><i class="fa fa-calendar"></i> Interviews</a>
+        <a href="resources.html"><i class="fa fa-book"></i> Resources</a>
+        <a href="statistics.html"><i class="fa fa-chart-bar"></i> Stats</a>
+        <a href="notifications.html"><i class="fa fa-bell"></i> Notifications</a>
+        <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+      </aside>
+    </div>
+  </header>
+  <script>
+    function openNav() {
+      document.getElementById('navSidebar').style.display = 'flex';
+      document.getElementById('navOverlay').classList.add('open');
+      document.getElementById('menuToggleBtn').style.display = 'none';
+    }
+    function closeNav() {
+      document.getElementById('navSidebar').style.display = 'none';
+      document.getElementById('navOverlay').classList.remove('open');
+      document.getElementById('menuToggleBtn').style.display = 'block';
+    }
+  </script>
+  <main class="container">
+    <section class="hero">
+      <h2>Placement Resources</h2>
+      <p>Boost your placement preparation with expert tips, guides, FAQs, and videos.</p>
+    </section>
+    <section class="card">
+      <h3><i class="fa fa-lightbulb"></i> Tips & Guides</h3>
+      <ul class="resource-list">
+        <li><i class="fa fa-file-pdf"></i> <a href="resume_guide.pdf" download>Resume Building Guide (PDF)</a></li>
+        <li><i class="fa fa-file-pdf"></i> <a href="interview_handbook.pdf" download>Interview Preparation Handbook (PDF)</a></li>
+        <li><i class="fa fa-link"></i> <a href="https://www.geeksforgeeks.org/placement-preparation/" target="_blank">GeeksforGeeks Placement Prep</a></li>
+        <li><i class="fa fa-link"></i> <a href="https://www.interviewbit.com/" target="_blank">InterviewBit Practice</a></li>
+        <li><i class="fa fa-link"></i> <a href="https://www.linkedin.com/learning/paths/prepare-for-your-job-search" target="_blank">LinkedIn Learning: Job Search</a></li>
+      </ul>
+      <div class="faq">
+        <h3><i class="fa fa-question-circle"></i> FAQs</h3>
+        <h4>How do I apply for jobs?</h4>
+        <p>Go to the Job Listings page, filter jobs, and click 'Apply' on your desired job.</p>
+        <h4>How do I upload my resume?</h4>
+        <p>Visit your Profile page and use the 'Upload Resume' option.</p>
+        <h4>How do I know if I am shortlisted?</h4>
+        <p>You will receive a notification and see your status updated in the Dashboard and Job Listings.</p>
+      </div>
+      <div class="video-list">
+        <iframe width="320" height="180" src="https://www.youtube.com/embed/8V8v66U6gZM" title="Placement Tips" frameborder="0" allowfullscreen></iframe>
+        <iframe width="320" height="180" src="https://www.youtube.com/embed/1nVUfZg2dSA" title="Resume Building" frameborder="0" allowfullscreen></iframe>
+        <iframe width="320" height="180" src="https://www.youtube.com/embed/2Xc9gXyf2G4" title="Interview Success" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 CampusConnect. All rights reserved.</p>
+    <div class="footer-icons">
+      <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+    </div>
+  </footer>
+  <div class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top" aria-label="Back to top"><i class="fa fa-arrow-up"></i></div>
+</body>
+</html> 

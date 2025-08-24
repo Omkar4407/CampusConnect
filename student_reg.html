@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Registration</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+</head>
+<body>
+  <header>
+    <div class="container" style="position:relative;">
+      <div class="logo">
+        <span class="logo-icon" aria-label="CampusConnect Logo">🎓</span>
+        CampusConnect
+      </div>
+      <button class="menu-toggle" id="menuToggleBtn" aria-label="Open navigation" onclick="openNav()">
+        <i class="fa fa-ellipsis-v"></i>
+      </button>
+      <div class="nav-overlay" id="navOverlay" onclick="closeNav()"></div>
+      <aside class="nav-sidebar" id="navSidebar" style="display:none;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <span class="logo-icon" aria-label="CampusConnect Logo">🎓</span>
+          <span style="font-weight:bold;font-size:1.2em;">CampusConnect</span>
+        </div>
+        <hr style="border:0;border-top:1.5px solid var(--pastel-blue);margin:10px 0;"/>
+        <button style="background:none;border:none;font-size:1.5em;position:absolute;top:16px;right:16px;cursor:pointer;" aria-label="Close navigation" onclick="closeNav()"><i class="fa fa-times"></i></button>
+        <a href="dashboard.html"><i class="fa fa-gauge"></i> Dashboard</a>
+        <a href="job_listings.html"><i class="fa fa-briefcase"></i> Job Listings</a>
+        <a href="student_reg.html"><i class="fa fa-user-graduate"></i> Student Registration</a>
+        <a href="company_reg.html"><i class="fa fa-building"></i> Company Registration</a>
+        <a href="interview_schedule.html"><i class="fa fa-calendar"></i> Interviews</a>
+        <a href="resources.html"><i class="fa fa-book"></i> Resources</a>
+        <a href="statistics.html"><i class="fa fa-chart-bar"></i> Stats</a>
+        <a href="notifications.html"><i class="fa fa-bell"></i> Notifications</a>
+        <a href="profile.html"><i class="fa fa-user"></i> Profile</a>
+      </aside>
+    </div>
+  </header>
+  <script>
+    function openNav() {
+      document.getElementById('navSidebar').style.display = 'flex';
+      document.getElementById('navOverlay').classList.add('open');
+      document.getElementById('menuToggleBtn').style.display = 'none';
+    }
+    function closeNav() {
+      document.getElementById('navSidebar').style.display = 'none';
+      document.getElementById('navOverlay').classList.remove('open');
+      document.getElementById('menuToggleBtn').style.display = 'block';
+    }
+  </script>
+
+  <main class="container">
+    <section class="card">
+      <form>
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required placeholder=" ">
+
+        <label for="rollNumber">Roll Number</label>
+        <input type="text" id="rollNumber" name="rollNumber" required placeholder=" ">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder=" ">
+
+        <label for="cgpa">CGPA</label>
+        <input type="number" step="0.01" id="cgpa" name="cgpa" required placeholder=" ">
+
+        <label for="resume">Upload Resume</label>
+        <input type="file" id="resume" name="resume" required>
+
+        <button type="submit"><i class="fa fa-paper-plane"></i> Submit Registration</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 CampusConnect</p>
+    <div class="footer-icons">
+      <a href="#" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fa fa-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
+    </div>
+  </footer>
+  <div class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top" aria-label="Back to top"><i class="fa fa-arrow-up"></i></div>
+</body>
+</html>
