@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jobs>
+  <job>
+    <id>1</id>
+    <company>Google</company>
+    <position>Software Engineer Intern</position>
+    <location>Mountain View, CA</location>
+    <salary>8000-12000</salary>
+    <description>Join our team to work on cutting-edge technology projects. Looking for students with strong programming skills in Java, Python, or JavaScript.</description>
+    <requirements>Computer Science major, GPA 3.5+, Strong programming skills</requirements>
+    <deadline>2025-02-15</deadline>
+    <status>open</status>
+  </job>
+  <job>
+    <id>2</id>
+    <company>Microsoft</company>
+    <position>Data Science Intern</position>
+    <location>Redmond, WA</location>
+    <salary>7000-11000</salary>
+    <description>Work with big data and machine learning algorithms. Help develop predictive models for business intelligence.</description>
+    <requirements>Statistics/CS major, Experience with Python/R, Machine Learning knowledge</requirements>
+    <deadline>2025-02-20</deadline>
+    <status>open</status>
+  </job>
+  <job>
+    <id>3</id>
+    <company>Amazon</company>
+    <position>Cloud Solutions Intern</position>
+    <location>Seattle, WA</location>
+    <salary>7500-11500</salary>
+    <description>Work with AWS services and help develop cloud-based solutions for enterprise clients.</description>
+    <requirements>Computer Science/IT major, AWS knowledge preferred, Networking skills</requirements>
+    <deadline>2025-02-25</deadline>
+    <status>open</status>
+  </job>
+  <job>
+    <id>4</id>
+    <company>Capgemini</company>
+    <position>Consulting Intern</position>
+    <location>Mumbai, India</location>
+    <salary>25000-35000</salary>
+    <description>Work on business transformation projects and help clients optimize their operations.</description>
+    <requirements>Business/Engineering major, Strong analytical skills, Communication skills</requirements>
+    <deadline>2025-02-10</deadline>
+    <status>open</status>
+  </job>
+  <job>
+    <id>5</id>
+    <company>Infosys</company>
+    <position>Software Developer Intern</position>
+    <location>Bangalore, India</location>
+    <salary>20000-30000</salary>
+    <description>Develop software solutions for global clients using modern technologies and frameworks.</description>
+    <requirements>Computer Science major, Java/Python skills, Database knowledge</requirements>
+    <deadline>2025-02-18</deadline>
+    <status>open</status>
+  </job>
+</jobs>

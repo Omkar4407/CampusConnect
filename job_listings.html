@@ -6,6 +6,7 @@
   <title>Job Listings | CampusConnect</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <style>
     .job-listing-card { margin-bottom: 24px; }
     .job-listing-header { display: flex; align-items: center; gap: 12px; }
@@ -44,6 +45,7 @@
       </aside>
     </div>
   </header>
+  <script src="js/app.js"></script>
   <script>
     function openNav() {
       document.getElementById('navSidebar').style.display = 'flex';
@@ -196,12 +198,16 @@
       <h2>Job Listings</h2>
       <p>Browse and apply to the latest job opportunities from top companies.</p>
     </section>
+    
     <section class="card">
       <form class="job-listing-filters" onsubmit="renderJobs();return false;">
         <input type="text" id="jobSearch" placeholder="Search by role or company..." />
         <select id="jobCompany">
           <option>All Companies</option>
           <option>Google</option>
+          <option>Microsoft</option>
+          <option>Amazon</option>
+          <option>Capgemini</option>
           <option>Infosys</option>
           <option>Wipro</option>
           <option>TCS</option>

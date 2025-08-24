@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interviews>
+  <interview>
+    <id>1</id>
+    <company>Capgemini</company>
+    <position>Consulting Intern</position>
+    <student>Omkar Bommakanti</student>
+    <date>2025-02-08</date>
+    <time>14:00</time>
+    <duration>60</duration>
+    <type>Technical</type>
+    <location>Virtual (Zoom)</location>
+    <interviewer>Rajesh Kumar</interviewer>
+    <status>scheduled</status>
+    <notes>Please prepare for case studies and technical questions</notes>
+  </interview>
+  <interview>
+    <id>2</id>
+    <company>Wipro</company>
+    <position>Software Developer Intern</position>
+    <student>Omkar Bommakanti</student>
+    <date>2025-02-12</date>
+    <time>11:00</time>
+    <duration>90</duration>
+    <type>Technical + HR</type>
+    <location>On-campus</location>
+    <interviewer>Priya Sharma</interviewer>
+    <status>scheduled</status>
+    <notes>Bring laptop for coding round</notes>
+  </interview>
+  <interview>
+    <id>3</id>
+    <company>Google</company>
+    <position>Software Engineer Intern</position>
+    <student>Vikram Singh</student>
+    <date>2025-02-15</date>
+    <time>10:00</time>
+    <duration>120</duration>
+    <type>Technical</type>
+    <location>Virtual (Google Meet)</location>
+    <interviewer>Sarah Johnson</interviewer>
+    <status>scheduled</status>
+    <notes>Algorithm and data structure focus</notes>
+  </interview>
+  <interview>
+    <id>4</id>
+    <company>Microsoft</company>
+    <position>Data Science Intern</position>
+    <student>Priya Sharma</student>
+    <date>2025-02-18</date>
+    <time>15:30</time>
+    <duration>75</duration>
+    <type>Technical</type>
+    <location>Virtual (Teams)</location>
+    <interviewer>Mike Chen</interviewer>
+    <status>scheduled</status>
+    <notes>Focus on machine learning and statistics</notes>
+  </interview>
+  <interview>
+    <id>5</id>
+    <company>Amazon</company>
+    <position>Cloud Solutions Intern</position>
+    <student>Rahul Kumar</student>
+    <date>2025-02-20</date>
+    <time>13:00</time>
+    <duration>90</duration>
+    <type>Technical + Behavioral</type>
+    <location>Virtual (Chime)</location>
+    <interviewer>Lisa Rodriguez</interviewer>
+    <status>scheduled</status>
+    <notes>Prepare for leadership principles and AWS questions</notes>
+  </interview>
+</interviews>

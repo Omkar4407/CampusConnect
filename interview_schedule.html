@@ -6,6 +6,7 @@
   <title>Interview Schedule | CampusConnect</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <style>
     .calendar-table { width: 100%; border-collapse: collapse; margin-top: 18px; }
     .calendar-table th, .calendar-table td { padding: 12px; text-align: center; border: 1px solid var(--pastel-blue); }
@@ -39,6 +40,7 @@
       </aside>
     </div>
   </header>
+  <script src="js/app.js"></script>
   <script>
     function openNav() {
       document.getElementById('navSidebar').style.display = 'flex';
@@ -67,6 +69,12 @@
       <h2>Interview Schedule</h2>
       <p>View and manage your upcoming interviews. Confirm or decline your slots.</p>
     </section>
+    
+    <!-- Interviews Container -->
+    <div id="interviews-container">
+      <!-- Interviews will be loaded dynamically from XML -->
+    </div>
+    
     <section class="card">
       <table class="calendar-table" id="interviewTable">
         <thead>
