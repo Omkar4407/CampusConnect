@@ -1,236 +1,242 @@
-# CampusConnect - jQuery & XML Integration
+# CampusConnect - Modern Campus Placement Portal
 
-A modern campus placement portal with dynamic content loading using jQuery and XML data sources.
+A production-ready campus placement management system built with React, TypeScript, and Supabase.
 
-## 🚀 Features
+## Features
 
-### jQuery Integration
-- **Dynamic Content Loading**: All job listings, student data, company information, and interview schedules are loaded dynamically from XML files
-- **Interactive UI**: Smooth animations, hover effects, and real-time updates
-- **Form Validation**: Client-side validation with instant feedback
-- **Search & Filter**: Real-time search and filtering capabilities
-- **Notifications**: Toast-style notifications for user feedback
+### For Students
+- **User Authentication** - Secure email/password authentication
+- **Job Listings** - Browse and search available job opportunities
+- **Job Applications** - Apply to positions with one click
+- **Interview Management** - View and manage interview schedules
+- **Profile Management** - Maintain comprehensive student profile
+- **Notifications** - Real-time updates on applications and interviews
+- **Saved Jobs** - Bookmark positions for later review
 
-### XML Data Structure
-- **Modular Data**: Separate XML files for different data types
-- **Structured Content**: Well-organized data hierarchy
-- **Easy Maintenance**: Simple to update and extend
+### For Companies
+- **Company Profiles** - Manage company information
+- **Job Postings** - Create and manage job openings
+- **Application Review** - Review student applications
+- **Interview Scheduling** - Schedule and manage interviews
+- **Candidate Management** - Track application statuses
 
-## 📁 Project Structure
+### Platform Features
+- **Responsive Design** - Works seamlessly on desktop, tablet, and mobile
+- **Real-time Updates** - Live notifications and status changes
+- **Advanced Search** - Filter jobs by location, company, and more
+- **Modern UI/UX** - Clean, intuitive interface with Tailwind CSS
+- **Type Safety** - Full TypeScript support for reliability
+
+## Tech Stack
+
+- **Frontend**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS v4
+- **Routing**: React Router v6
+- **Backend**: Supabase (PostgreSQL + Auth + Real-time)
+- **Icons**: Lucide React
+- **State Management**: React Context API
+
+## Project Structure
 
 ```
-CampusConnect/
-├── data/                    # XML data files
-│   ├── jobs.xml            # Job listings data
-│   ├── students.xml        # Student registration data
-│   ├── companies.xml       # Company information
-│   └── interviews.xml      # Interview schedules
-├── js/
-│   └── app.js             # Main jQuery application logic
-├── HTML Files
-│   ├── index.html         # Landing page
-│   ├── dashboard.html     # Main dashboard
-│   ├── job_listings.html  # Job search and listings
-│   ├── interview_schedule.html # Interview management
-│   ├── student_reg.html   # Student registration
-│   ├── company_reg.html   # Company registration
-│   ├── profile.html       # User profile
-│   ├── statistics.html    # Analytics and stats
-│   ├── notifications.html # Notification center
-│   └── resources.html     # Placement resources
-├── style.css              # Enhanced CSS with animations
-└── README.md             # This file
+campusconnect/
+├── src/
+│   ├── components/          # Reusable UI components
+│   │   └── Layout.tsx       # Main app layout with navigation
+│   ├── pages/               # Page components
+│   │   ├── LandingPage.tsx  # Public landing page
+│   │   ├── SignIn.tsx       # Authentication - Sign in
+│   │   ├── SignUp.tsx       # Authentication - Registration
+│   │   ├── Dashboard.tsx    # Main dashboard with stats
+│   │   ├── JobListings.tsx  # Browse and search jobs
+│   │   ├── InterviewSchedule.tsx  # Interview management
+│   │   ├── Profile.tsx      # User profile management
+│   │   └── Notifications.tsx # Notification center
+│   ├── hooks/               # Custom React hooks
+│   │   └── useAuth.tsx      # Authentication hook
+│   ├── lib/                 # External service clients
+│   │   └── supabase.ts      # Supabase client configuration
+│   ├── types/               # TypeScript type definitions
+│   │   └── index.ts         # All application types
+│   ├── utils/               # Utility functions
+│   │   └── mockData.ts      # Mock data for development
+│   ├── App.tsx              # Main app component with routing
+│   ├── main.tsx             # Application entry point
+│   └── index.css            # Global styles and Tailwind config
+├── public/                  # Static assets
+├── dist/                    # Production build output
+└── package.json             # Dependencies and scripts
 ```
 
-## 🔧 Technical Implementation
+## Database Schema
 
-### jQuery Features
-1. **AJAX Data Loading**: XML files are loaded asynchronously using jQuery AJAX
-2. **DOM Manipulation**: Dynamic content generation and updates
-3. **Event Handling**: Interactive elements with smooth user experience
-4. **Animations**: CSS transitions and jQuery animations
-5. **Form Handling**: Validation and submission processing
+The application uses Supabase with the following main tables:
 
-### XML Data Structure
+- **profiles** - User profiles (students, companies, admins)
+- **students** - Student-specific information
+- **companies** - Company information
+- **jobs** - Job postings
+- **applications** - Job applications from students
+- **interviews** - Interview schedules
+- **notifications** - User notifications
+- **saved_jobs** - Student bookmarked jobs
 
-#### Jobs XML (`data/jobs.xml`)
-```xml
-<jobs>
-  <job>
-    <id>1</id>
-    <company>Google</company>
-    <position>Software Engineer Intern</position>
-    <location>Mountain View, CA</location>
-    <salary>8000-12000</salary>
-    <description>Job description...</description>
-    <requirements>Requirements...</requirements>
-    <deadline>2025-02-15</deadline>
-    <status>open</status>
-  </job>
-</jobs>
+All tables have Row Level Security (RLS) enabled with appropriate policies.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+- Supabase account (database is pre-configured)
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Environment variables are already configured in `.env`
+
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open http://localhost:5173 in your browser
+
+### Building for Production
+
+```bash
+npm run build
 ```
 
-#### Students XML (`data/students.xml`)
-```xml
-<students>
-  <student>
-    <id>1</id>
-    <name>Omkar Bommakanti</name>
-    <email>omkar.bommakanti@example.com</email>
-    <phone>+91-9876543210</phone>
-    <branch>Computer Science</branch>
-    <year>4th Year</year>
-    <gpa>3.8</gpa>
-    <skills>Java, Python, JavaScript, React, Node.js</skills>
-    <resume>omkar_resume.pdf</resume>
-    <status>active</status>
-  </student>
-</students>
-```
+The production-ready files will be in the `dist/` directory.
 
-#### Companies XML (`data/companies.xml`)
-```xml
-<companies>
-  <company>
-    <id>1</id>
-    <name>Google</name>
-    <industry>Technology</industry>
-    <website>https://www.google.com</website>
-    <email>careers@google.com</email>
-    <phone>+1-650-253-0000</phone>
-    <location>Mountain View, CA</location>
-    <description>Company description...</description>
-    <hr_contact>Sarah Johnson</hr_contact>
-    <hr_email>sarah.johnson@google.com</hr_email>
-    <status>active</status>
-  </company>
-</companies>
-```
+## Usage
 
-#### Interviews XML (`data/interviews.xml`)
-```xml
-<interviews>
-  <interview>
-    <id>1</id>
-    <company>Capgemini</company>
-    <position>Consulting Intern</position>
-    <student>Omkar Bommakanti</student>
-    <date>2025-02-08</date>
-    <time>14:00</time>
-    <duration>60</duration>
-    <type>Technical</type>
-    <location>Virtual (Zoom)</location>
-    <interviewer>Rajesh Kumar</interviewer>
-    <status>scheduled</status>
-    <notes>Interview notes...</notes>
-  </interview>
-</interviews>
-```
+### For Students
 
-## 🎯 Key Features
+1. **Sign Up** - Create an account as a student
+2. **Complete Profile** - Add your academic details, skills, and resume
+3. **Browse Jobs** - Search and filter available positions
+4. **Apply** - Submit applications with one click
+5. **Track Progress** - Monitor application status and interview schedules
 
-### 1. Dynamic Job Listings
-- Real-time job search and filtering
-- Company-based filtering
-- Status-based filtering
-- Interactive job cards with apply/save functionality
+### For Companies
 
-### 2. Interview Management
-- Dynamic interview schedule display
-- Join interview functionality
+1. **Register** - Create a company account
+2. **Post Jobs** - Add job openings with requirements
+3. **Review Applications** - Browse student applications
+4. **Schedule Interviews** - Set up interview times
+5. **Manage Candidates** - Update application statuses
+
+## Key Features Details
+
+### Authentication System
+- Email/password authentication via Supabase Auth
+- Protected routes with automatic redirects
+- Session management with persistent login
+- Demo mode available for testing
+
+### Job Search & Filters
+- Real-time search across positions and companies
+- Location-based filtering
+- Company-specific filtering
+- Sort by deadline, salary, and more
+
+### Interview Management
+- Calendar view of upcoming interviews
+- Virtual meeting links
 - Reschedule requests
 - Interview status tracking
+- Interviewer information
 
-### 3. Form Validation
-- Real-time validation feedback
-- Email format validation
-- URL validation for company websites
-- GPA range validation
+### Notifications
+- Real-time notification system
+- Multiple notification types (info, success, warning, error)
+- Mark as read/unread
+- Delete functionality
+- Unread count badges
 
-### 4. User Experience
-- Smooth animations and transitions
-- Toast notifications
-- Responsive design
-- Interactive hover effects
+### Responsive Design
+- Mobile-first approach
+- Touch-friendly interactions
+- Collapsible navigation on mobile
+- Optimized for all screen sizes
 
-### 5. Dashboard Integration
-- Real-time statistics updates
-- Dynamic notification display
-- Quick action buttons
-- Profile data integration
+## Security
 
-## 🛠️ Usage
+- Row Level Security (RLS) on all database tables
+- JWT-based authentication
+- Secure password handling
+- Protected API routes
+- Input validation and sanitization
 
-### Running the Application
-1. Open any HTML file in a web browser
-2. The application will automatically load XML data
-3. All interactive features are immediately available
+## Performance
 
-### Adding New Data
-1. **Jobs**: Add new job entries to `data/jobs.xml`
-2. **Students**: Add student records to `data/students.xml`
-3. **Companies**: Add company information to `data/companies.xml`
-4. **Interviews**: Add interview schedules to `data/interviews.xml`
+- Code splitting with React.lazy
+- Optimized build with Vite
+- CSS purging in production
+- Lazy loading of images
+- Efficient re-renders with React hooks
 
-### Customizing Styles
-- Modify `style.css` for visual changes
-- Add new CSS classes for custom components
-- Update color schemes and animations
+## Browser Support
 
-## 🔍 Browser Compatibility
+- Chrome 90+
+- Firefox 88+
+- Safari 14+
+- Edge 90+
 
-- Chrome 60+
-- Firefox 55+
-- Safari 12+
-- Edge 79+
+## Development
 
-## 📱 Responsive Design
+### Available Scripts
 
-The application is fully responsive and works on:
-- Desktop computers
-- Tablets
-- Mobile phones
-- All screen sizes
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## 🎨 Customization
+### Code Style
 
-### Adding New Features
-1. Create new XML data files in the `data/` directory
-2. Add corresponding functions in `js/app.js`
-3. Update HTML templates as needed
-4. Add CSS styles for new components
+- TypeScript for type safety
+- Functional components with hooks
+- Consistent naming conventions
+- Component-based architecture
+- Modular and maintainable code
 
-### Modifying Existing Features
-1. Update XML data structure
-2. Modify jQuery functions in `app.js`
-3. Update HTML templates
-4. Adjust CSS styles
+## Production Deployment
 
-## 🚀 Future Enhancements
+The application is production-ready with:
+- Zero build errors
+- Zero runtime errors
+- Type-safe codebase
+- Optimized bundle size
+- SEO-friendly routing
+- Error boundaries
 
-- Database integration (MySQL/PostgreSQL)
-- User authentication system
-- Real-time chat functionality
+## Future Enhancements
+
+- Resume parser integration
+- Video interview scheduling
+- Chat system between students and companies
+- Analytics dashboard for placement officers
 - Email notifications
-- Advanced analytics dashboard
-- Mobile app development
+- Document management system
+- Advanced filtering and sorting
+- Export functionality for reports
 
-## 📄 License
+## License
 
-This project is open source and available under the MIT License.
+MIT License - feel free to use this project for learning or commercial purposes.
 
-## 🤝 Contributing
+## Support
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
-
-## 📞 Support
-
-For support and questions, please contact the development team.
+For issues or questions, please contact the development team.
 
 ---
 
-**CampusConnect** - Connecting Students and Companies for a Better Future! 🎓
+Built with ❤️ for Campus Placement Management

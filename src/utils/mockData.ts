@@ -1,0 +1,140 @@
+import type { Job, Student, Company, Interview, Application, Notification } from '../types';
+
+export const mockCompanies: Company[] = [
+  {
+    id: '1',
+    profile_id: 'company-1',
+    company_name: 'Google',
+    industry: 'Technology',
+    website: 'https://www.google.com',
+    phone: '+1-650-253-0000',
+    location: 'Mountain View, CA',
+    description: 'Leading technology company specializing in internet-related services and products.',
+    hr_contact: 'Sarah Johnson',
+    hr_email: 'sarah.johnson@google.com',
+    status: 'active',
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: '2',
+    profile_id: 'company-2',
+    company_name: 'Microsoft',
+    industry: 'Technology',
+    website: 'https://www.microsoft.com',
+    phone: '+1-425-882-8080',
+    location: 'Redmond, WA',
+    description: 'Global leader in software, cloud computing, and productivity solutions.',
+    hr_contact: 'Michael Chen',
+    hr_email: 'michael.chen@microsoft.com',
+    status: 'active',
+    created_at: new Date().toISOString(),
+  },
+  {
+    id: '3',
+    profile_id: 'company-3',
+    company_name: 'Amazon',
+    industry: 'E-Commerce & Cloud',
+    website: 'https://www.amazon.com',
+    phone: '+1-206-266-1000',
+    location: 'Seattle, WA',
+    description: 'Global e-commerce and cloud computing giant.',
+    hr_contact: 'Emily Davis',
+    hr_email: 'emily.davis@amazon.com',
+    status: 'active',
+    created_at: new Date().toISOString(),
+  },
+];
+
+export const mockJobs: Job[] = [
+  {
+    id: '1',
+    company_id: '1',
+    position: 'Software Engineer Intern',
+    location: 'Mountain View, CA',
+    salary_min: 8000,
+    salary_max: 12000,
+    description: 'Join our team to work on cutting-edge technology projects. Looking for students with strong programming skills in Java, Python, or JavaScript.',
+    requirements: 'Computer Science major, GPA 3.5+, Strong programming skills',
+    deadline: '2025-02-15',
+    status: 'open',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    company: mockCompanies[0],
+  },
+  {
+    id: '2',
+    company_id: '2',
+    position: 'Data Science Intern',
+    location: 'Redmond, WA',
+    salary_min: 7000,
+    salary_max: 11000,
+    description: 'Work with big data and machine learning algorithms. Help develop predictive models for business intelligence.',
+    requirements: 'Statistics/CS major, Experience with Python/R, Machine Learning knowledge',
+    deadline: '2025-02-20',
+    status: 'open',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    company: mockCompanies[1],
+  },
+  {
+    id: '3',
+    company_id: '3',
+    position: 'Cloud Solutions Intern',
+    location: 'Seattle, WA',
+    salary_min: 7500,
+    salary_max: 11500,
+    description: 'Work with AWS services and help develop cloud-based solutions for enterprise clients.',
+    requirements: 'Computer Science/IT major, AWS knowledge preferred, Networking skills',
+    deadline: '2025-02-25',
+    status: 'open',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+    company: mockCompanies[2],
+  },
+];
+
+export const mockStudents: Student[] = [
+  {
+    id: '1',
+    profile_id: 'student-1',
+    phone: '+91-9876543210',
+    branch: 'Computer Science',
+    year: '4th Year',
+    gpa: 3.8,
+    skills: ['Java', 'Python', 'JavaScript', 'React', 'Node.js'],
+    status: 'active',
+    created_at: new Date().toISOString(),
+  },
+];
+
+export const mockInterviews: Interview[] = [
+  {
+    id: '1',
+    application_id: '1',
+    company_id: '1',
+    student_id: '1',
+    scheduled_date: '2025-02-08',
+    scheduled_time: '14:00',
+    duration: 60,
+    type: 'technical',
+    location: 'Virtual (Zoom)',
+    interviewer: 'John Doe',
+    status: 'scheduled',
+    created_at: new Date().toISOString(),
+    company: mockCompanies[0],
+  },
+];
+
+export const mockNotifications: Notification[] = [
+  {
+    id: '1',
+    user_id: 'current-user',
+    title: 'Welcome to CampusConnect',
+    message: 'Complete your profile to start applying for jobs',
+    type: 'info',
+    read: false,
+    created_at: new Date().toISOString(),
+  },
+];
+
+export const mockApplications: Application[] = [];
