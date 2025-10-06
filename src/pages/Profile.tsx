@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAuth } from '../hooks/useAuth';
-import { User, Mail, Phone, BookOpen, Award, FileText, Edit2, Save } from 'lucide-react';
+import { User, Mail, Phone, BookOpen, Award, FileText, CreditCard as Edit2, Save } from 'lucide-react';
 
 export function Profile() {
   const { profile } = useAuth();
